@@ -2,7 +2,6 @@ class OpenMic
   attr_reader :location,
               :date,
               :performers
-
   def initialize(info)
     @location   = info[:location]
     @date       = info[:date]
@@ -10,7 +9,7 @@ class OpenMic
   end
 
   def welcome(user)
-    @performers.push(user)
+    @performers << user
   end
 
   def repeated_jokes?
@@ -20,6 +19,6 @@ class OpenMic
         joke_hash[joke.setup] += 1
       end
     end
-    joke_hash.any? { |key, value| value > 1}
+   joke_hash.any? { |key, value| value > 1}
   end
 end

@@ -8,19 +8,14 @@ RSpec.describe User do
     expect(user_1).to be_a(User)
   end
 
-  it 'has a name' do
+  it 'has attributes' do
     user_1 = User.new("Sal")
 
     expect(user_1.name).to eq("Sal")
-  end
-
-  it 'has no jokes by default' do
-    user_1 = User.new("Sal")
-
     expect(user_1.jokes).to eq([])
   end
 
-  it 'can learn jokes' do
+  it 'can make the user learn jokes' do
     user_1 = User.new("Sal")
 
     joke_1 = Joke.new(22, "Why did the strawberry cross the road?",
@@ -34,7 +29,7 @@ RSpec.describe User do
     expect(user_1.jokes).to eq([joke_1, joke_2])
   end
 
-  it 'can have users tell each other jokes' do
+  it 'can have users tell jokes to other users' do
     user_1 = User.new("Sal")
     user_2 = User.new("Ali")
 
@@ -52,7 +47,7 @@ RSpec.describe User do
     expect(user_2.jokes).to eq([joke_1, joke_2])
   end
 
-  it 'can identify jokes by its id' do
+  it 'can identify jokes by their id number' do
     user_1 = User.new("Sal")
     user_2 = User.new("Ali")
 
